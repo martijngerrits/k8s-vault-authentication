@@ -10,6 +10,7 @@ import (
 )
 
 type Client interface {
+	GetVaultClient() *api.Client
 	Login() error
 }
 
@@ -18,6 +19,10 @@ type K8SVaultClient struct {
 	Role      string
 	JWT       string
 	LoginPath string
+}
+
+func (c *K8SVaultClient) GetVaultClient() *api.Client {
+	return c.Client
 }
 
 func lookupJwt(tokenPath string) (string, error) {
