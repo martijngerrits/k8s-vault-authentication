@@ -32,6 +32,8 @@ For development you might use an insecure Vault instance.
 import (
     k8sva "github.com/martijngerrits/k8s-vault-authentication"
     "log"
+    "net/http"
+    "time"
 )
 
 client, err := k8sva.NewK8SClientWithOptions(
